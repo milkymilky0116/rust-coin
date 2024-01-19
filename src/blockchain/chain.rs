@@ -20,8 +20,8 @@ impl BlockChain {
         self.blocks.push(new_block);
     }
 
-    pub fn all_blocks(&self) -> &Vec<Block> {
-        &self.blocks
+    pub fn all_blocks(&self) -> Vec<Block> {
+        self.blocks.clone()
     }
 
     pub fn init(&mut self) {
@@ -33,7 +33,7 @@ impl BlockChain {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Block {
     pub data: String,
     pub hash: String,
