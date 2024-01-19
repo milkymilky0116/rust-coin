@@ -1,20 +1,15 @@
-use std::sync::Mutex;
+use axum::{routing::get, Router};
 
-use blockchain::chain::BlockChain;
+mod blockchain;
 
-pub mod blockchain;
-static BLOCK_CHAIN: Mutex<BlockChain> = Mutex::new(BlockChain::new());
+async fn home() -> String {
+    "This is Home!".to_string()
+}
 
-fn main() {
-    let mut chain = BLOCK_CHAIN.lock().unwrap();
+#[tokio::main]
+async fn main() {
+    let app = Router::new().route("/", get(home));
 
-    chain.init();
-    chain.add_block("Second Block".to_string());
-    chain.add_block("Third Block".to_string());
-
-    chain.all_blocks().iter().for_each(|block| {
-        println!("Data: {}", block.data);
-        println!("Hash: {}", block.hash);
-        println!("Prev Hash: {}\n\n", block.prev_hash);
-    })
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    axum::serve(listener, app).await.unwrap();
 }
