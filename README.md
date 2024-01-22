@@ -13,9 +13,9 @@ This Project is re-write project of [Nomadcoder's Nomad coin in golang](https://
 
 - Section 5: Explorer
 
-#### in this section, i'm using [Axum](https://github.com/tokio-rs/axum) for web framework, [Askama](https://github.com/djc/askama/tree/main) for template engine.
+  - in this section, i'm using [Axum](https://github.com/tokio-rs/axum) for web framework, [Askama](https://github.com/djc/askama/tree/main) for template engine.
 
-#### Since _Askama_ behaves differently compared to _Golang Template engine_, I couldn't achieve 100% replicate from original source code. (like head, footer partial)
+  - Since _Askama_ behaves differently compared to _Golang Template engine_, I couldn't achieve 100% replicate from original source code. (like head, footer partial)
 
 - [x] #5.1 Rendering Templates
 - [x] #5.2 Rendering Blocks
