@@ -17,8 +17,8 @@ This Project is re-write project of [Nomadcoder's Nomad coin in golang](https://
 
   - Since _Askama_ behaves differently compared to _Golang Template engine_, I couldn't achieve 100% replicate from original source code. (like head, footer partial)
 
-- [x] #5.1 Rendering Templates
-- [x] #5.2 Rendering Blocks
-- [x] #5.3 Using Partials
-- [x] #5.4 Adding A Block
-- [x] #5.5 Refactoring
+  - [x] #5.1 Rendering Templates
+  - [x] #5.2 Rendering Blocks
+  - [x] #5.3 Using Partials
+  - [x] #5.4 Adding A Block
+  - [x] #5.5 Refactoring
