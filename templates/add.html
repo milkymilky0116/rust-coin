@@ -1,0 +1,14 @@
+{% extends "layout/layout.html" %} {% block title %} {{ title }} {% endblock %}
+{% block header %}
+<h1>{{ title }}</h1>
+{% endblock %} {% block contents %}
+<form method="post">
+  <input
+    type="text"
+    name="block_data"
+    placeholder="Data for your block"
+    required
+  />
+  <button>Add Block</button>
+</form>
+{% endblock %}
