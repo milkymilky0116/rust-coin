@@ -10,6 +10,8 @@ askama = { version = "0.12", features = ["with-axum", "mime", "mime_guess"] }
 askama_axum = "0.4.0"
 axum = "0.7.4"
 clap = { version = "4.4.18", features = ["derive"] }
+lazy_static = "1.4.0"
 serde = { version = "1.0.195", features = ["derive"] }
 sha256 = "1.5.0"
+sled = "0.34.7"
 tokio = { version = "1.35.1", features = ["macros", "rt-multi-thread"] }
