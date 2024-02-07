@@ -38,5 +38,6 @@ This Project is re-write project of [Nomadcoder's Nomad coin in golang](https://
   - [x] #7.1 Parsing Commands
   - [x] #7.2 FlagSet
   - [x] #7.3 Flag
+  - [x] Code Challenge
 
   - In this section, i'm using [clap](https://github.com/clap-rs/clap) for parsing command-line.

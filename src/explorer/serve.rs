@@ -62,6 +62,7 @@ pub fn routes() -> Router {
 }
 pub async fn serve(port: usize) {
     let addr = format!("0.0.0.0:{port}");
-    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+    let listener = tokio::net::TcpListener::bind(addr.clone()).await.unwrap();
+    println!("Listening explorer server on {}", addr);
     axum::serve(listener, routes()).await.unwrap()
 }
