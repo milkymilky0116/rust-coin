@@ -15,9 +15,17 @@ impl BlockChain {
             "".to_string()
         }
     }
+
+    pub fn get_block(&self, id: usize) -> Option<&Block> {
+        self.blocks.get(id - 1)
+    }
+
+    pub fn get_height(&self) -> usize {
+        self.blocks.len() + 1
+    }
     pub fn add_block(&mut self, data: String) {
         let mut new_block = Block::default();
-        new_block.create_block(data, self.get_last_hash());
+        new_block.create_block(data, self.get_last_hash(), self.get_height());
         self.blocks.push(new_block);
     }
 
@@ -39,6 +47,7 @@ pub struct Block {
     pub data: String,
     pub hash: String,
     pub prev_hash: String,
+    pub height: usize,
 }
 
 impl Default for Block {
@@ -47,6 +56,7 @@ impl Default for Block {
             data: "".to_string(),
             hash: "".to_string(),
             prev_hash: "".to_string(),
+            height: 0,
         }
     }
 }
@@ -56,9 +66,10 @@ impl Block {
         let data = format!("{}{}", self.data, last_hash);
         digest(data)
     }
-    pub fn create_block(&mut self, data: String, last_hash: String) {
+    pub fn create_block(&mut self, data: String, last_hash: String, height: usize) {
         self.data = data;
         self.hash = self.calculate_hash(&last_hash);
         self.prev_hash = last_hash;
+        self.height = height;
     }
 }
