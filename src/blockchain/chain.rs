@@ -1,3 +1,4 @@
+use serde::Serialize;
 use sha256::digest;
 
 #[derive(Debug)]
@@ -33,7 +34,7 @@ impl BlockChain {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize)]
 pub struct Block {
     pub data: String,
     pub hash: String,
