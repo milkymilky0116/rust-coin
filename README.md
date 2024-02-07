@@ -22,3 +22,12 @@ This Project is re-write project of [Nomadcoder's Nomad coin in golang](https://
   - [x] #5.3 Using Partials
   - [x] #5.4 Adding A Block
   - [x] #5.5 Refactoring
+
+- Section 6: REST API
+
+  - [x] #6.0 Setup
+  - [x] #6.4 NewServeMux
+  - [x] #6.6 Atoi
+  - [x] #6.7 Error Handling
+
+  - Thanks to axum's awesomeness, i don't have to implemenent header middleware to add 'application/json'.
