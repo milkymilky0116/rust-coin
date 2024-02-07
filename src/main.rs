@@ -1,21 +1,12 @@
-use std::{process, sync::Mutex};
+use std::sync::Mutex;
 
 use blockchain::chain::BlockChain;
 mod blockchain;
+mod cli;
 mod explorer;
 mod rest;
 static BLOCK_CHAIN: Mutex<BlockChain> = Mutex::new(BlockChain::new());
 
-fn usage() {
-    print!("Welcome to rust-coin\n\n");
-
-    print!("Please use the following commands:\n\n");
-
-    print!("explorer:   Start the HTML Explorer\n\n");
-
-    print!("rest:   Start the REST API\n\n");
-    process::exit(1)
-}
 #[tokio::main]
 async fn main() {
     {
@@ -24,16 +15,5 @@ async fn main() {
         chain.add_block("Second Block".to_string());
         chain.add_block("Third Block".to_string());
     }
-
-    let args = std::env::args().nth(1);
-
-    match args {
-        Some(arg) => match arg.as_str() {
-            "explorer" => println!("explorer"),
-            _ => println!("rest"),
-        },
-        None => usage(),
-    }
-
-    //serve(3000).await
+    cli::serve::serve().await
 }

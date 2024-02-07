@@ -13,6 +13,8 @@ pub struct URLDescription {
     url: String,
     method: String,
     description: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(default)]
     payload: Option<String>,
 }
 
